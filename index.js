@@ -1,20 +1,18 @@
 // INITIAL REQUIRES - MAKE SURE TO CHANGE VARIABLE NAMES
 const { prompt } = require("inquirer");
 const logo = require("asciiart-logo");
-const db = require("./db");
-require("console.table");
+const employeeDb = require("./db");
+// require("console.table");
 
-init();
 
 // DISPLAY LOGO TEXT, LOAD MAIN PROMPTS - CHANGE VARIABLE NAMES
 function init(){
     const logoText = logo({ name: "Employee Manager" }).render();
-
     console.log(logoText);
-
     loadMainPrompts();
 }
-
+//PW OPTIONAL ONES THAT I DID NOT PUT IN BELOW: VIEW ALL EMPLOYEES BY DEPARTMENT, VIEW ALL EMPLOYEES BY MANAGER,
+// UPDATE EMPLOYEE MANAGER, REMOVE DEPARTMENT, VIEW TOTAL UTILIZED BUDGET BY DEPARTMENT
 function loadMainPrompts(){
     prompt([
  {
@@ -50,6 +48,10 @@ function loadMainPrompts(){
             name: "Update An Employee Role",
             value: "UPDATE_ROLE"
         },
+        {
+            name: "exit",
+            value: "EXIT"
+        },
     ]
         }
     ]).then(res =>{
@@ -77,6 +79,8 @@ function loadMainPrompts(){
             case "UPDATE_ROLE":
             updateRole();
             break;
+            default:
+                exit();
             
         }
     })
@@ -87,7 +91,7 @@ function loadMainPrompts(){
 // VIEW ALL EMPLOYEES SOURCE CODE - MAKE SURE TO CHANGE OUT NAMES
 // make one of these functions for each switch case above
 function viewEmployees(){
-    db.findAllEmployees()
+    employeeDb.findAllEmployees()
     .then(([rows]) => {
         let employees = rows;
         console.log("\n");
@@ -95,3 +99,15 @@ function viewEmployees(){
     })
     .then(() => loadMainPrompts());
 }
+
+// view all employees that belong to a department - no more on the screen for this example
+// function viewEmployeesByDepartment(){
+//     employeeDb.findAllDepartment()
+//     .then(({rows}) =>{
+//         let department = rows;
+//         const departmentChoices = department.map(({id, name}) => ({
+//             name: name,
+//         }))
+//     })
+// }
+init();

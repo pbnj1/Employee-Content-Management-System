@@ -4,10 +4,10 @@ const mysql = require("mysql2")
 const connection = mysql.createConnection({
 user: "root",
 password: "rootroot",
-database: "employees"
+database: "employee_tracker_db"
 });
 
-RTCPeerConnection.connect(function (err){
+connection.connect(function (err){
     if (err) throw err;
 })
 
