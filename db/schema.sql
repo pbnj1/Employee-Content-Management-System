@@ -1,10 +1,10 @@
 -- will need to put in the SQL schema set up to create, read, update, and delete table values on
 -- this file
-DROP DATABASE IF EXISTS employee_tracker_db
+DROP DATABASE IF EXISTS employee_tracker_db;
 
-CREATE DATABASE employee_tracker_db
+CREATE DATABASE employee_tracker_db;
 
-USE employee_tracker_db
+USE employee_tracker_db;
 
 CREATE TABLE department (
     id INT AUTO_INCREMENT PRIMARY KEY,

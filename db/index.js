@@ -1,33 +1,25 @@
 const connection = require ("./connection");
 
-class DB{
-    //keeping a reference to the connection on the class in case we need it later
-    constructor(connection){
-        this.connection = connection;
-    }
+class EmployeeDB{
+//     //keeping a reference to the connection on the class in case we need it later
+//     constructor(connection){
+//         this.connection = connection;
+//     }
 
 
 // find all employees and join with roles and departments to display roles, salaries, departments and 
 // managers.  TO MEET THE REQUIREMENTS WE CAN JUST SELECT ALL FROM EMPLOYEES TABLE AND LOG IT OUT
 // employee.id, employee.first_name, employee.last_name, role.title,department.name AS department, role.salary, CONCAT(managerfirst_name, ' ', manager.last_name) AS manager FROM employee LEFT JOIN role on employee. role_id = role.id LEFT JOIN department on role.department_id = department. id LEFT JOIN employee manager on manager.id = employee.manager_id;"
 
-// findAllEmployees() {
-//     return this.connection.promise().query(
-//         "SELECT * FROM employees"
-//         );
-// }
+findEmployees() {
+    return this.connection.promise().query(
+        "SELECT * FROM employees"
+        );
+}
 
 // const viewAllEmployees = () => {
   
-//     const query = `
-//     SELECT e.id, e.first_name, e.last_name, role.title, department.name AS department, salary, IFNULL(concat(m.first_name, ' ', m.last_name), 'N/A') AS manager
-//     FROM employee e
-//     LEFT JOIN employee m
-//     ON m.id = e.manager_id
-//     JOIN role
-//     ON e.role_id = role.id
-//     JOIN department
-//     ON role.department_id = department.id;`
+//     const query = `SELECT * FROM employee`
       
 //     connection.query(
 //       query,
@@ -35,7 +27,7 @@ class DB{
 //         if (err) throw err;
 //         console.log('\n');
 //         console.table(results);
-//         start();
+//         loadMainPrompts();
 //     })
 //   }
 

@@ -91,7 +91,7 @@ function loadMainPrompts(){
 // VIEW ALL EMPLOYEES SOURCE CODE - MAKE SURE TO CHANGE OUT NAMES
 // make one of these functions for each switch case above
 function viewEmployees(){
-    employeeDb.findAllEmployees()
+    employeeDb.findEmployees()
     .then(([rows]) => {
         let employees = rows;
         console.log("\n");
