@@ -2,6 +2,7 @@
 const { prompt } = require("inquirer");
 const logo = require("asciiart-logo");
 const employeeDb = require("./db");
+//ASK SAMUEL IF LINE 6 IS NEEDED OR IF I COULD JUST GO OFF LINE 4....
 const EmployeeDB = require("./db/index.js" );
 // require("console.table");
 

@@ -2,9 +2,9 @@ const connection = require ("./connection");
 
 class EmployeeDB{
 //     //keeping a reference to the connection on the class in case we need it later
-//     constructor(connection){
-//         this.connection = connection;
-//     }
+    constructor(connection){
+        this.connection = connection;
+    }
 
 
 // find all employees and join with roles and departments to display roles, salaries, departments and 
@@ -32,10 +32,11 @@ viewRolesTitle() {
         );
 }
 
+//PW NEED TO FIGURE OUT HOW TO INPUT THE VALUES DATA..
 addDept() {
-    console.log(" inside viewRolesTitle")
+    console.log(" inside addDept")
     return this.connection.promise().query(
-        "SELECT role.title FROM role"
+        "INSERT into department (name) VALUES (?)"
         );
 }
 
@@ -111,4 +112,4 @@ return this.connection.promise().query(
 }
 }
 
-module.exports = EmployeeDB;
+module.exports = new EmployeeDB(connection);
