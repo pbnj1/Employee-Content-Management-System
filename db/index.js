@@ -28,9 +28,17 @@ findDepartments() {
 viewRolesTitle() {
     console.log(" inside viewRolesTitle")
     return this.connection.promise().query(
-        "SELECT name FROM department"
+        "SELECT role.title FROM role"
         );
 }
+
+addDept() {
+    console.log(" inside viewRolesTitle")
+    return this.connection.promise().query(
+        "SELECT role.title FROM role"
+        );
+}
+
 
 // const viewAllEmployees = () => {
   

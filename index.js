@@ -124,6 +124,16 @@ function viewRoles(){
     .then(() => loadMainPrompts());
 }
 
+function addDepartments(){
+    console.log(" inside addDepartments")
+    EmployeeDB.addDept()
+    .then(([addDeptData]) => {
+        let addDept = addDeptData;
+        console.log("\n");
+        console.table(addDept);
+    })
+    .then(() => loadMainPrompts());
+}
 
 
 
