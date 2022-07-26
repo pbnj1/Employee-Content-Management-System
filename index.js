@@ -94,13 +94,39 @@ function loadMainPrompts(){
 function viewEmployees(){
     console.log(" inside viewEmployees")
     EmployeeDB.findEmployees()
-    .then(([rows]) => {
-        let employees = rows;
+    .then(([employeeData]) => {
+        let employees = employeeData;
         console.log("\n");
         console.table(employees);
     })
     .then(() => loadMainPrompts());
 }
+
+function viewDepartments(){
+    console.log(" inside viewDepartments")
+    EmployeeDB.findDepartments()
+    .then(([departmentData]) => {
+        let department = departmentData;
+        console.log("\n");
+        console.table(department);
+    })
+    .then(() => loadMainPrompts());
+}
+
+function viewRoles(){
+    console.log(" inside viewRoles")
+    EmployeeDB.viewRolesTitle()
+    .then(([rolesData]) => {
+        let roles = rolesData;
+        console.log("\n");
+        console.table(roles);
+    })
+    .then(() => loadMainPrompts());
+}
+
+
+
+
 
 // view all employees that belong to a department - no more on the screen for this example
 // function viewEmployeesByDepartment(){

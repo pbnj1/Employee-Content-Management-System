@@ -18,6 +18,20 @@ findEmployees() {
         );
 }
 
+findDepartments() {
+    console.log(" inside findDepartments")
+    return this.connection.promise().query(
+        "SELECT name FROM department"
+        );
+}
+
+viewRolesTitle() {
+    console.log(" inside viewRolesTitle")
+    return this.connection.promise().query(
+        "SELECT name FROM department"
+        );
+}
+
 // const viewAllEmployees = () => {
   
 //     const query = `SELECT * FROM employee`
