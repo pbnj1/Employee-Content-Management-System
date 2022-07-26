@@ -2,6 +2,7 @@
 const { prompt } = require("inquirer");
 const logo = require("asciiart-logo");
 const employeeDb = require("./db");
+const EmployeeDB = require("./db/index.js" );
 // require("console.table");
 
 
@@ -91,7 +92,8 @@ function loadMainPrompts(){
 // VIEW ALL EMPLOYEES SOURCE CODE - MAKE SURE TO CHANGE OUT NAMES
 // make one of these functions for each switch case above
 function viewEmployees(){
-    employeeDb.findEmployees()
+    console.log(" inside viewEmployees")
+    EmployeeDB.findEmployees()
     .then(([rows]) => {
         let employees = rows;
         console.log("\n");
