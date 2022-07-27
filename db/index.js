@@ -1,4 +1,5 @@
 const connection = require ("./connection");
+const { prompt } = require("inquirer")
 
 class EmployeeDB{
 //     //keeping a reference to the connection on the class in case we need it later
@@ -12,43 +13,60 @@ class EmployeeDB{
 // employee.id, employee.first_name, employee.last_name, role.title,department.name AS department, role.salary, CONCAT(managerfirst_name, ' ', manager.last_name) AS manager FROM employee LEFT JOIN role on employee. role_id = role.id LEFT JOIN department on role.department_id = department. id LEFT JOIN employee manager on manager.id = employee.manager_id;"
 
 findEmployees() {
-    console.log(" inside findEmployees")
+    console.log(" inside findEmployees");
     return this.connection.promise().query(
         "SELECT * FROM employees"
         );
 }
 
 findDepartments() {
-    console.log(" inside findDepartments")
+    console.log(" inside findDepartments");
     return this.connection.promise().query(
         "SELECT name FROM department"
         );
 }
 
 viewRolesTitle() {
-    console.log(" inside viewRolesTitle")
+    console.log(" inside viewRolesTitle");
     return this.connection.promise().query(
         "SELECT role.title FROM role"
         );
 }
 
 //PW NEED TO FIGURE OUT HOW TO INPUT THE VALUES DATA..
-addDept() {
-    console.log(" inside addDept")
+addDept = async () => {
+    const answer = await prompt();
+    console.log(" inside addDept");
+    prompt([ { 
+      type: "input",
+      name: "newDepartment",
+      message: "What department would you like to add?"
+}
+])
     return this.connection.promise().query(
-        "INSERT into department (name) VALUES (?)"
+        "INSERT into department SET ?",{
+        name: answer.newDepartment,  
+        },
+       
         );
 }
 
 addEmployeeRole() {
-    console.log(" inside addEmployeeRole")
+    console.log(" inside addEmployeeRole");
+    prompt([ { 
+        type: "input",
+        name: "addEmployeeRole",
+        message: "What is the new employee role you would like to add?"
+  }
+  ])
     return this.connection.promise().query(
-        "INSERT into role (title) VALUES (?)"
+        "INSERT into role SET ?"
+
     );
 }
 
 addNewEmployee(){
-    console.log("inside addNewEmployee")
+    console.log("inside addNewEmployee");
     return this.connection.promise().query(
         "INSERT into employees (first_name, last_name, role_id, manager_id) VALUES (?)"
     );

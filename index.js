@@ -129,6 +129,7 @@ function addDepartments(){
     employeeDb.addDept()
     .then(([addDeptData]) => {
         let addDept = addDeptData;
+        console.log("New department added!");
         console.log("\n");
         console.table(addDept);
     })
@@ -140,6 +141,7 @@ function addRole(){
     employeeDb.addEmployeeRole()
     .then(([roleData]) => {
         let addRole = roleData;
+        console.log("New role added!");
         console.log("\n");
         console.table(addRole);
     })
@@ -151,6 +153,7 @@ function addEmployee(){
     employeeDb.addNewEmployee()
     .then(([newEmployeeData]) =>{
         let newEmployee = newEmployeeData;
+        console.log("New employee added!");
         console.log("\n");
         console.table(newEmployee);
     })
@@ -162,6 +165,7 @@ function updateRole(){
     employeeDb.updateEmployeeRole()
     .then(([updateData]) =>{
         let updatedEmployee = updateData;
+        console.log("Role updated!");
         console.log("\n");
         console.table(updatedEmployee);
     })
