@@ -2,8 +2,7 @@
 const { prompt } = require("inquirer");
 const logo = require("asciiart-logo");
 const employeeDb = require("./db");
-//ASK SAMUEL IF LINE 6 IS NEEDED OR IF I COULD JUST GO OFF LINE 4....
-const EmployeeDB = require("./db/index.js" );
+
 // require("console.table");
 
 
@@ -73,7 +72,7 @@ function loadMainPrompts(){
             addDepartments();
             break;
             case "ADD_ROLE":
-            viewRole();
+            addRole();
             break;
             case "ADD_EMPLOYEE":
             addEmployee();
@@ -93,50 +92,86 @@ function loadMainPrompts(){
 // VIEW ALL EMPLOYEES SOURCE CODE - MAKE SURE TO CHANGE OUT NAMES
 // make one of these functions for each switch case above
 function viewEmployees(){
-    console.log(" inside viewEmployees")
-    EmployeeDB.findEmployees()
+    console.log(" inside viewEmployees");
+    employeeDb.findEmployees()
     .then(([employeeData]) => {
         let employees = employeeData;
         console.log("\n");
         console.table(employees);
     })
     .then(() => loadMainPrompts());
-}
+};
 
 function viewDepartments(){
-    console.log(" inside viewDepartments")
-    EmployeeDB.findDepartments()
+    console.log(" inside viewDepartments");
+    employeeDb.findDepartments()
     .then(([departmentData]) => {
         let department = departmentData;
         console.log("\n");
         console.table(department);
     })
     .then(() => loadMainPrompts());
-}
+};
 
 function viewRoles(){
-    console.log(" inside viewRoles")
-    EmployeeDB.viewRolesTitle()
+    console.log(" inside viewRoles");
+    employeeDb.viewRolesTitle()
     .then(([rolesData]) => {
         let roles = rolesData;
         console.log("\n");
         console.table(roles);
     })
     .then(() => loadMainPrompts());
-}
+};
 
 function addDepartments(){
-    console.log(" inside addDepartments")
-    EmployeeDB.addDept()
+    console.log(" inside addDepartments");
+    employeeDb.addDept()
     .then(([addDeptData]) => {
         let addDept = addDeptData;
         console.log("\n");
         console.table(addDept);
     })
     .then(() => loadMainPrompts());
-}
+};
 
+function addRole(){
+    console.log("inside addRole");
+    employeeDb.addEmployeeRole()
+    .then(([roleData]) => {
+        let addRole = roleData;
+        console.log("\n");
+        console.table(addRole);
+    })
+    .then(() => loadMainPrompts());
+};
 
+function addEmployee(){
+    console.log("inside addEmployee");
+    employeeDb.addNewEmployee()
+    .then(([newEmployeeData]) =>{
+        let newEmployee = newEmployeeData;
+        console.log("\n");
+        console.table(newEmployee);
+    })
+    .then(() => loadMainPrompts());
+};
+
+function updateRole(){
+    console.log("inside updateRole");
+    employeeDb.updateEmployeeRole()
+    .then(([updateData]) =>{
+        let updatedEmployee = updateData;
+        console.log("\n");
+        console.table(updatedEmployee);
+    })
+    .then(() => loadMainPrompts());
+};
+
+function exit(){
+    console.log("inside exit");
+    console.log("Have a good day!");
+};
 
 
 // view all employees that belong to a department - no more on the screen for this example

@@ -40,7 +40,26 @@ addDept() {
         );
 }
 
+addEmployeeRole() {
+    console.log(" inside addEmployeeRole")
+    return this.connection.promise().query(
+        "INSERT into role (title) VALUES (?)"
+    );
+}
 
+addNewEmployee(){
+    console.log("inside addNewEmployee")
+    return this.connection.promise().query(
+        "INSERT into employees (first_name, last_name, role_id, manager_id) VALUES (?)"
+    );
+}
+
+updateEmployeeRole(){
+    console.log("inside updateEmployeeRole");
+    return this.connection.promise().query(
+        "INSERT into role (title, salary, department_id) "
+    )
+}
 // const viewAllEmployees = () => {
   
 //     const query = `SELECT * FROM employee`
