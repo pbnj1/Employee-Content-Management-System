@@ -88,7 +88,7 @@ function loadMainPrompts() {
 // VIEW ALL EMPLOYEES SOURCE CODE - MAKE SURE TO CHANGE OUT NAMES
 // make one of these functions for each switch case above
 function viewEmployees() {
-  console.log(" inside viewEmployees");
+  console.log("inside viewEmployees");
   employeeDb
     .findEmployees()
     .then(([employeeData]) => {
@@ -115,8 +115,8 @@ function viewRoles() {
   console.log(" inside viewRoles");
   employeeDb
     .viewRolesTitle()
-    .then(([rolesData]) => {
-      let roles = rolesData;
+    .then(([res]) => {
+      let roles = res;
       console.log("\n");
       console.table(roles);
     })
@@ -161,15 +161,12 @@ function addRole() {
       message: "What is the new employee id for this role?",
     },
   ])
-    .then((answer) => {
+    .then((res) => {
+      let answer = res;
       employeeDb.addEmployeeRole(answer);
-    })
-
-    .then(([roleData]) => {
-      let addRole = roleData;
       console.log("New role added!");
       console.log("\n");
-      console.table(addRole);
+      console.table(answer);
     })
     .then(() => loadMainPrompts());
 }
@@ -199,14 +196,13 @@ function addEmployee() {
       name: "manager",
       message: "What is the manager id of your new employee?",
     },
-  ]).then((answer) => {
-    employeeDb.addNewEmployee(answer);
-  })
-    .then(([newEmployeeData]) => {
-      let newEmployee = newEmployeeData;
+  ])
+    .then((res) => {
+      let answer = res;
+      employeeDb.addNewEmployee(answer);
       console.log("New employee added!");
       console.log("\n");
-      console.table(newEmployee);
+      console.table(answer);
     })
     .then(() => loadMainPrompts());
 }
@@ -217,25 +213,22 @@ function updateRole() {
     {
       type: "input",
       name: "first name",
-      message:
-        "What is the ?",
+      message: "What is the first name of the employee you want to update?",
     },
     {
       type: "input",
       name: "last name",
       message:
-        "What is the last name of your new employee that you would like to add?",
+        "What is the last name of the employee that you would like to update?",
     },
     {
       type: "input",
       name: "role",
-      message: "What is the role of your new employee?",
+      message: "What is the new role id of your employee?",
     },
-])
-  employeeDb
-    .updateEmployeeRole()
-    .then(([updateData]) => {
-      let updatedEmployee = updateData;
+  ])
+    .then((res) => {
+      let updatedEmployee = res;
       console.log("Role updated!");
       console.log("\n");
       console.table(updatedEmployee);
