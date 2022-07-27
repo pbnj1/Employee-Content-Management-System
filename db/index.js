@@ -61,16 +61,14 @@ addDept(answer) {
         
 // }
 addEmployeeRole(answer) {
-    console.log(" inside addEmployeeRole");
+    console.log("inside addEmployeeRole");
     return this.connection.promise().query(`INSERT INTO role (title, salary, department_id) VALUES ("${answer}")`)
       
 };
 
-addNewEmployee(){
+addNewEmployee(answer){
     console.log("inside addNewEmployee");
-    return this.connection.promise().query(
-        "INSERT into employees (first_name, last_name, role_id, manager_id) VALUES (?)"
-    );
+    return this.connection.promise().query(`INSERT into employees (first_name, last_name, role_id, manager_id) VALUES ("${answer}")`)
 }
 
 updateEmployeeRole(){

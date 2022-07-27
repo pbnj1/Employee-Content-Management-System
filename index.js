@@ -124,7 +124,7 @@ function viewRoles() {
 }
 
 function addDepartments() {
-  console.log(" inside addDepartments");
+  console.log("inside addDepartments");
   prompt([
     {
       type: "input",
@@ -133,7 +133,7 @@ function addDepartments() {
     },
   ])
     .then((answer) => {
-      employeeDb.addDept(answer.department);
+      employeeDb.addDept(answer);
     })
     .then(([addDeptData]) => {
       let addDept = addDeptData;
@@ -178,8 +178,32 @@ function addRole() {
 
 function addEmployee() {
   console.log("inside addEmployee");
-  employeeDb
-    .addNewEmployee()
+  prompt([
+    {
+      type: "input",
+      name: "first name",
+      message:
+        "What is the first name of your new employee that you would like to add?",
+    },
+    {
+      type: "input",
+      name: "last name",
+      message:
+        "What is the last name of your new employee that you would like to add?",
+    },
+    {
+      type: "input",
+      name: "role",
+      message: "What is the role of your new employee?",
+    },
+    {
+      type: "input",
+      name: "manager",
+      message: "What is the manager id of your new employee?",
+    },
+  ]).then((answer) => {
+    employeeDb.addNewEmployee(answer);
+  })
     .then(([newEmployeeData]) => {
       let newEmployee = newEmployeeData;
       console.log("New employee added!");
@@ -191,6 +215,25 @@ function addEmployee() {
 
 function updateRole() {
   console.log("inside updateRole");
+  prompt([
+    {
+      type: "input",
+      name: "first name",
+      message:
+        "What is the ?",
+    },
+    {
+      type: "input",
+      name: "last name",
+      message:
+        "What is the last name of your new employee that you would like to add?",
+    },
+    {
+      type: "input",
+      name: "role",
+      message: "What is the role of your new employee?",
+    },
+])
   employeeDb
     .updateEmployeeRole()
     .then(([updateData]) => {
