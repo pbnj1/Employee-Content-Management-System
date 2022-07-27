@@ -34,36 +34,37 @@ viewRolesTitle() {
 }
 
 //PW NEED TO FIGURE OUT HOW TO INPUT THE VALUES DATA..
-addDept = async () => {
-    const answer = await prompt();
-    console.log(" inside addDept");
-    prompt([ { 
-      type: "input",
-      name: "newDepartment",
-      message: "What department would you like to add?"
-}
-])
-    return this.connection.promise().query(
-        "INSERT into department SET ?",{
-        name: answer.newDepartment,  
-        },
+// addDept = async () => {
+//     const answer = await prompt();
+//     console.log(" inside addDept");
+//     prompt([ { 
+//       type: "input",
+//       name: "newDepartment",
+//       message: "What department would you like to add?"
+// }
+// ])
+//     return this.connection.promise().query(
+//         "INSERT into department SET ?",{
+//         name: answer.newDepartment,  
+//         },
        
-        );
-}
-
-addEmployeeRole() {
+//         );
+// }
+// addDept(answer){
+//     console.log("inside addDept");
+//     return this.connection.promise().query(`INSERT into department (name) VALUES ("${answer}")`)
+// };
+addDept(answer) {
+    console.log("inside addDept");
+    return this.connection.promise().query(`INSERT INTO department (name) VALUES ("${answer}")`)
+};
+        
+// }
+addEmployeeRole(answer) {
     console.log(" inside addEmployeeRole");
-    prompt([ { 
-        type: "input",
-        name: "addEmployeeRole",
-        message: "What is the new employee role you would like to add?"
-  }
-  ])
-    return this.connection.promise().query(
-        "INSERT into role SET ?"
-
-    );
-}
+    return this.connection.promise().query(`INSERT INTO role (title, salary, department_id) VALUES ("${answer}")`)
+      
+};
 
 addNewEmployee(){
     console.log("inside addNewEmployee");
@@ -78,28 +79,22 @@ updateEmployeeRole(){
         "INSERT into role (title, salary, department_id) "
     )
 }
-// const viewAllEmployees = () => {
+
+
+// // const viewAllEmployees = () => {
   
-//     const query = `SELECT * FROM employee`
+// //     const query = `SELECT * FROM employee`
       
-//     connection.query(
-//       query,
-//       (err, results) => {
-//         if (err) throw err;
-//         console.log('\n');
-//         console.table(results);
-//         loadMainPrompts();
-//     })
-//   }
+// //     connection.query(
+// //       query,
+// //       (err, results) => {
+// //         if (err) throw err;
+// //         console.log('\n');
+// //         console.table(results);
+// //         loadMainPrompts();
+// //     })
+// //   }
 
-
-
-//Creat a new department
-createDepartment(department) {
-    return this.connection.promise().query("INSERT INTO department SET ?", 
-    department
-    );
-}
 
 //update the employee's role
 updateEmployeeRole(employeeId, roleId){
@@ -109,44 +104,44 @@ updateEmployeeRole(employeeId, roleId){
     );
 }
 
-// find all possible employees except the given employee id? BONUS? 3:24 video
-findAllPossibleManagers(employeeId) {
-    return this.connection.promise().query(
-        "SELECT id, first_name, last_name FROM employee WHERE id ≠ ?",
-        employeeId
-    );
+// // find all possible employees except the given employee id? BONUS? 3:24 video
+// findAllPossibleManagers(employeeId) {
+//     return this.connection.promise().query(
+//         "SELECT id, first_name, last_name FROM employee WHERE id ≠ ?",
+//         employeeId
+//     );
+// }
+
+// //update employee manager -BONUS
+// updateEmployeeManager(employeeId, managerID){
+//     return this.connnection.promise().query(
+//         "UPDATE employee SET manager_id = ? WHERE id = ?",
+//         [managerID, employeeId]
+//     );
+// }
+
+
+
+
+// //remove a roll -BONUS
+// removeRole(roleId){
+//     return this.connection.promise().query("DELETE FROM role WHERE ID = ?",
+//     roleID);
+// }
+
+// //find all departments - BONUS?
+// findAllDepartments(){
+//     return this.connection.promise().query("SELECT department.id, department.name From department;"
+//     );
+// }
+
+// //remove an employee with a given id - BONUS
+// removeEmployee(employeeID) {
+// return this.connection.promise().query(
+//     "DELETE FROM employee WHERE id = ?",
+//     employeeId
+// );
+// }
+// }
 }
-
-//update employee manager -BONUS
-updateEmployeeManager(employeeId, managerID){
-    return this.connnection.promise().query(
-        "UPDATE employee SET manager_id = ? WHERE id = ?",
-        [managerID, employeeId]
-    );
-}
-
-
-
-
-//remove a roll -BONUS
-removeRole(roleId){
-    return this.connection.promise().query("DELETE FROM role WHERE ID = ?",
-    roleID);
-}
-
-//find all departments - BONUS?
-findAllDepartments(){
-    return this.connection.promise().query("SELECT department.id, department.name From department;"
-    );
-}
-
-//remove an employee with a given id - BONUS
-removeEmployee(employeeID) {
-return this.connection.promise().query(
-    "DELETE FROM employee WHERE id = ?",
-    employeeId
-);
-}
-}
-
 module.exports = new EmployeeDB(connection);
