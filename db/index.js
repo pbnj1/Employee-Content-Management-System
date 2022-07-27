@@ -55,18 +55,24 @@ viewRolesTitle() {
 //     return this.connection.promise().query(`INSERT into department (name) VALUES ("${answer}")`)
 // };
 addDept(answer) {
+    console.log(answer)
     console.log("inside addDept");
-    return this.connection.promise().query(`INSERT INTO department (name) VALUES ("${answer}")`)
-};
+    // return this.connection.promise().query(`INSERT INTO department (name) VALUES ("${answer}")`)
+    return this.connection.promise().query(
+         "INSERT into department SET ? ",{
+             name: answer.newDepartment,  
+         })};
         
 // }
 addEmployeeRole(answer) {
+    console.log(answer)
     console.log("inside addEmployeeRole");
     return this.connection.promise().query(`INSERT INTO role (title, salary, department_id) VALUES ("${answer}")`)
       
 };
 
 addNewEmployee(answer){
+    console.log(answer)
     console.log("inside addNewEmployee");
     return this.connection.promise().query(`INSERT into employees (first_name, last_name, role_id, manager_id) VALUES ("${answer}")`)
 }

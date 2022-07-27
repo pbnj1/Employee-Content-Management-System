@@ -132,14 +132,12 @@ function addDepartments() {
       message: "What department would you like to add?",
     },
   ])
-    .then((answer) => {
+    .then((res) => {
+      let answer = res;
       employeeDb.addDept(answer);
-    })
-    .then(([addDeptData]) => {
-      let addDept = addDeptData;
       console.log("New department added!");
       console.log("\n");
-      console.table(addDept);
+      console.table(answer);
     })
     .then(() => loadMainPrompts());
 }
