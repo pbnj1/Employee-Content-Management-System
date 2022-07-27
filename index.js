@@ -177,14 +177,12 @@ function addEmployee() {
     {
       type: "input",
       name: "first name",
-      message:
-        "What is the first name of your new employee that you would like to add?",
+      message:"What is the first name of your new employee that you would like to add?",
     },
     {
       type: "input",
       name: "last name",
-      message:
-        "What is the last name of your new employee that you would like to add?",
+      message:"What is the last name of your new employee that you would like to add?",
     },
     {
       type: "input",
@@ -218,8 +216,7 @@ function updateRole() {
     {
       type: "input",
       name: "last name",
-      message:
-        "What is the last name of the employee that you would like to update?",
+      message: "What is the last name of the employee that you would like to update?",
     },
     {
       type: "input",
@@ -241,14 +238,5 @@ function exit() {
   console.log("Have a good day!");
 }
 
-// view all employees that belong to a department - no more on the screen for this example
-// function viewEmployeesByDepartment(){
-//     employeeDb.findAllDepartment()
-//     .then(({rows}) =>{
-//         let department = rows;
-//         const departmentChoices = department.map(({id, name}) => ({
-//             name: name,
-//         }))
-//     })
-// }
+
 init();
