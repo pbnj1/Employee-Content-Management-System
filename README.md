@@ -14,7 +14,7 @@ You will run this from the command line after installing all the apporpriate mod
 ## Requirements
 You will need
 
-Node.js
+[Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
 mySQL2
 
