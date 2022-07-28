@@ -6,6 +6,9 @@ Attached video:
 
 
 
+## How to use this app
+You will run this from the command line after installing all the apporpriate modules listed below.  You can start the app by typing in node index.js into the command line and follow the prompts to manage your employee data.
+
 
 ## Requirements
 You will need
