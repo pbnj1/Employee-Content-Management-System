@@ -4,6 +4,7 @@ This is a command line interface that allows the user to dynamically update a da
 
 Attached video:
 
+[Untitled_ Jul 27, 2022 9_58 PM.webm](https://user-images.githubusercontent.com/105159702/181405350-70491d72-e3fa-43f4-a092-8563ef51feae.webm)
 
 
 ## How to use this app
