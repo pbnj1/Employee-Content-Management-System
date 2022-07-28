@@ -16,6 +16,6 @@ You will need
 
 [Node.js](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
-mySQL2
+[mySQL2](https://www.npmjs.com/package/mysql2)
 
-Inquirer
+[Inquirer](https://www.npmjs.com/package/inquirer)
