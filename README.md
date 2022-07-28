@@ -9,6 +9,9 @@ Attached video:
 
 ## Requirements
 You will need
+
 Node.js
+
 mySQL
+
 Inquirer
