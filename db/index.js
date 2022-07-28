@@ -46,12 +46,13 @@ class EmployeeDB {
   addNewEmployee(answer) {
     console.log(answer);
     console.log("inside addNewEmployee");
-    return this.connection.promise().query("INSERT into employees SET ? ",{
+    return this.connection.promise().query("INSERT into employees SET ? ",
+    {
         first_name: answer.first_name,
         last_name: answer.last_name,
         role_id: answer.role_id,
         manager_id: answer.manager_id,
-      });
+    });
   }
 
   updateEmployeeRole(answer) {

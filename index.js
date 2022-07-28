@@ -176,12 +176,12 @@ function addEmployee() {
   prompt([
     {
       type: "input",
-      name: "first name",
+      name: "first_name",
       message:"What is the first name of your new employee that you would like to add?",
     },
     {
       type: "input",
-      name: "last name",
+      name: "last_name",
       message:"What is the last name of your new employee that you would like to add?",
     },
     {
@@ -210,12 +210,12 @@ function updateRole() {
   prompt([
     {
       type: "input",
-      name: "first name",
+      name: "first_name",
       message: "What is the first name of the employee you want to update?",
     },
     {
       type: "input",
-      name: "last name",
+      name: "last_name",
       message: "What is the last name of the employee that you would like to update?",
     },
     {
