@@ -225,10 +225,11 @@ function updateRole() {
     },
   ])
     .then((res) => {
-      let updatedEmployee = res;
+      let answer = res;
+      employeeDb.updateEmployeeRole(answer);
       console.log("Role updated!");
       console.log("\n");
-      console.table(updatedEmployee);
+      console.table(answer);
     })
     .then(() => loadMainPrompts());
 }
