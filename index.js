@@ -88,7 +88,6 @@ function loadMainPrompts() {
 // VIEW ALL EMPLOYEES SOURCE CODE - MAKE SURE TO CHANGE OUT NAMES
 // make one of these functions for each switch case above
 function viewEmployees() {
-  console.log("inside viewEmployees");
   employeeDb
     .findEmployees()
     .then(([employeeData]) => {
@@ -100,7 +99,6 @@ function viewEmployees() {
 }
 
 function viewDepartments() {
-  console.log(" inside viewDepartments");
   employeeDb
     .findDepartments()
     .then(([departmentData]) => {
@@ -112,7 +110,6 @@ function viewDepartments() {
 }
 
 function viewRoles() {
-  console.log(" inside viewRoles");
   employeeDb
     .viewRolesTitle()
     .then(([res]) => {
@@ -124,7 +121,6 @@ function viewRoles() {
 }
 
 function addDepartments() {
-  console.log("inside addDepartments");
   prompt([
     {
       type: "input",
@@ -143,7 +139,6 @@ function addDepartments() {
 }
 
 function addRole() {
-  console.log("inside addRole");
   prompt([
     {
       type: "input",
@@ -172,7 +167,6 @@ function addRole() {
 }
 
 function addEmployee() {
-  console.log("inside addEmployee");
   prompt([
     {
       type: "input",
@@ -206,7 +200,6 @@ function addEmployee() {
 }
 
 function updateRole() {
-  console.log("inside updateRole");
   prompt([
     {
       type: "input",
@@ -221,13 +214,8 @@ function updateRole() {
     {
       type: "input",
       name: "role",
-      message: "What is the new role id of your employee?",
+      message: "What is the new role of your employee?",
     },
-    {
-        type: "input",
-        name: "department",
-        message: "What is the new department id of your employee?",
-      },
   ])
     .then((res) => {
       let answer = res;
@@ -240,7 +228,6 @@ function updateRole() {
 }
 
 function exit() {
-  console.log("inside exit");
   console.log("Have a good day!");
 }
 

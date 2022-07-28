@@ -9,24 +9,19 @@ class EmployeeDB {
 
 
   findEmployees() {
-    console.log("inside findEmployees");
     return this.connection.promise().query("SELECT * FROM employees");
   }
 
   findDepartments() {
-    console.log(" inside findDepartments");
     return this.connection.promise().query("SELECT name FROM department");
   }
 
   viewRolesTitle() {
-    console.log(" inside viewRolesTitle");
     return this.connection.promise().query("SELECT role.title FROM role");
   }
 
 
   addDept(answer) {
-    console.log(answer);
-    console.log("inside addDept");
     return this.connection.promise().query("INSERT into department SET ? ", {
       name: answer.newDepartment,
     });
@@ -44,8 +39,6 @@ class EmployeeDB {
   }
 
   addNewEmployee(answer) {
-    console.log(answer);
-    console.log("inside addNewEmployee");
     return this.connection.promise().query("INSERT INTO employees SET ? ",
     {
         first_name: answer.first_name,
@@ -56,17 +49,15 @@ class EmployeeDB {
   }
 
   updateEmployeeRole(answer) {
-    console.log("inside updateEmployeeRole");
-    return this.connection.promise().query(" INSERT INTO employee SET ? ",
+    return this.connection.promise().query(" INSERT INTO employees SET ? ",
       {
         first_name: answer.first_name,
         last_name: answer.last_name,
-        role_id: answer.role_id,
-        department_id: answer.department_id,
+        role: answer.role
+        
       });
   }
 
   
- 
 }
 module.exports = new EmployeeDB(connection);
