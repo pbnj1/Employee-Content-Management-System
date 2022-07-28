@@ -223,6 +223,11 @@ function updateRole() {
       name: "role",
       message: "What is the new role id of your employee?",
     },
+    {
+        type: "input",
+        name: "department",
+        message: "What is the new department id of your employee?",
+      },
   ])
     .then((res) => {
       let answer = res;
