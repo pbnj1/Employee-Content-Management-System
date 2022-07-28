@@ -16,6 +16,6 @@ You will need
 
 Node.js
 
-mySQL
+mySQL2
 
 Inquirer
